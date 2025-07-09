@@ -7,8 +7,9 @@ if ('scrollRestoration' in history) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
+    // Smooth scroll for anchor links
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = document.querySelector(link.getAttribute('href'));
@@ -18,11 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Scroll indicator functionality
     const scrollIndicator = document.getElementById('scrollIndicator');
     
     if (scrollIndicator) {
         scrollIndicator.addEventListener('click', () => {
-            scrollIndicator.classList.add('hidden');
+            scrollIndicator.style.opacity = '0';
+            scrollIndicator.style.pointerEvents = 'none';
+            scrollIndicator.style.animation = 'none';
             
             window.scrollTo({
                 top: document.body.scrollHeight,
@@ -34,8 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', () => {
             const currentScrollY = window.scrollY;
             
+            // Hide when scrolling down
             if (currentScrollY > lastScrollY && currentScrollY > 50) {
-                scrollIndicator.classList.add('hidden');
+                scrollIndicator.style.opacity = '0';
+                scrollIndicator.style.pointerEvents = 'none';
+                scrollIndicator.style.animation = 'none';
+            }
+            
+            // Show when scrolling back to top
+            if (currentScrollY < 100) {
+                scrollIndicator.style.opacity = '1';
+                scrollIndicator.style.pointerEvents = 'auto';
+                scrollIndicator.style.animation = 'bounce 2s infinite';
             }
             
             lastScrollY = currentScrollY;

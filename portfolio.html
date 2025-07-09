@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio gallery by Tomas Perry - Photography work showcasing portraits, nature, and street photography">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Portfolio | Tomas Perry</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+    <main>
+        <header class="portfolio-header">
+            <nav class="nav-bar">
+                <a href="index.html" class="nav-link">← Back to Home</a>
+            </nav>
+            <div class="header-content">
+                <h1>Portfolio</h1>
+                <p>A collection of my recent photography work</p>
+            </div>
+        </header>
+
+        <section class="portfolio-section">
+
+            <div class="gallery-grid">
+                <!-- Flickr photos will be loaded here -->
+            </div>
+            <div class="loading-spinner" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>Loading photos...</p>
+            </div>
+            <div class="error-message" id="errorMessage">
+                <div class="error-icon">⚠️</div>
+                <h3>Unable to load photos</h3>
+                <p>There was an issue loading photos from Flickr. Please try refreshing the page or check back later.</p>
+                <button class="retry-button" onclick="location.reload()">Try Again</button>
+            </div>
+        </section>
+
+        <section class="flickr-link-section">
+            <p>Want to see more? <a href="https://www.flickr.com/photos/200981204@N05/" target="_blank" rel="noopener noreferrer">Visit my Flickr page</a> for the complete collection.</p>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox">
+            <div class="lightbox-content">
+                <span class="close-lightbox">&times;</span>
+                <img class="lightbox-image" src="" alt="">
+                <div class="lightbox-caption">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <button class="lightbox-nav prev">‹</button>
+                <button class="lightbox-nav next">›</button>
+            </div>
+        </div>
+
+        <footer class="portfolio-footer">
+            <div class="footer-content">
+                <p>Have a project in mind? I’d love to hear from you.</p>
+                <a href="index.html#contact" class="cta-button">Get In Touch</a>
+            </div>
+        </footer>
+    </main>
+    <script src="portfolio.js"></script>
+</body>
+</html> 
