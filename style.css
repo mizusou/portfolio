@@ -306,6 +306,12 @@ main {
     height: 45px;
     bottom: 80px;
   }
+  .cta-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+    text-decoration: none;
+    color: var(--bg-color);
+  }
 }
 
 /*hey i know my css sucks dont @ me */
